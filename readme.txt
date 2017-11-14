@@ -25,8 +25,9 @@ Specifications
 
 Getting started
 ===============
+A bootable floppy image "yaos.img" is included. You can use a VMWare VM to run it.
 
-1.  Run GO.BAT to start kernel.  It will load `init' process and break in the
+1.  Run START.BAT to start kernel.  It will load `init' process and break in the
     built-in debugger (*1).
 
 2.  Press F5 (debugger assigned key for `go').  You will see the prompt of one
