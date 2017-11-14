@@ -47,7 +47,25 @@ int main( int argc, char *argp[], char **env )
     s_stdout = open("/dev/tty0", O_WRONLY );
     s_stderr = open("/dev/tty0", O_WRONLY );
 
-    printf("\n\n\n\n");
+    printf("Init process: stdin stdout stderr -> /dev/tty0\n\n");
+
+#if 1
+    printf("Environment variables:\n");
+
+    for( i=0; environ[i] != NULL; i++ )
+    {
+        printf(" %s\n", environ[i] );
+    }
+#endif
+
+#if 1
+    printf("\nNumber of arguments: %d\n", argc );
+
+    for( i=0; i<argc; i++ )
+    {
+        printf("%d.  %08X %s\n", i, argp[i], argp[i] );
+    }
+#endif
 
 #if 0
     // Test directory functions

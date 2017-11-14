@@ -1,9 +1,0 @@
-
-YAOS - Yet Another Operating System
-===================================
-
-You may ask - what's the use of yet another operating system :-) ?  Just try to browse the net and you will find numerous kernels, free OS-es and similar projects.  Well, if you look more closely, the vast majority of the stuff `out there' exists only as a 'wish list', an unimplemented specifications of something that is supposed to be the `perfect' project.
-
-I know there are people out there who just love to write stuff (me being one of them).  Now I talk to those people who just can't wait to lay their hands on something and create and improve it.  I dont say there's no need to work on Linux, Minix, FreeBSD, FreeDOS or some other `cool' project, but the fact to be able to influence the design from the very beginning is important.  I think every now and then we need a new project to work on to `sharpen' our senses, to discover new approaches and styles, and to apply what we have learned so far.
-
-Yaos is (also) created from the scratch.  It was designed to help learning Intel 80X86 operation by having a full-blown debugger with the symbols support.

@@ -27,6 +27,8 @@
 ;   DATE     REV   DESCRIPTION OF CHANGES                         AUTHOR      *
 ; --------   ----  ---------------------------------------------  ----------- *
 ; 7/30/97    1.00  Original                                       Goran Devic *
+; 1/19/98    1.01  Added delay to settle A20 - now it works correctly         *
+;                  on a Compaq Presario laptop                    Goran Devic *
 ; --------   ----  ---------------------------------------------  ----------- *
 ;******************************************************************************
        Page
@@ -474,6 +476,8 @@ wait_8042:
        mov     ah, al                  ; store a byte in ah
        mov     al, 0D1h                ; Write Output Port command
        out     (64h), al
+       call    Empty_8042              ; Perform a delay to settle A20
+
        mov     al, ah                  ; original byte with A20 enabled
        out     (60h), al               ; new byte with A20 enabled
 

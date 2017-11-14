@@ -1,8 +1,30 @@
+YAOS - Yet Another Operating System
+===================================
 (c) Copyright by Goran Devic, 1997
 
+Specifications
+==============
 
-YAOS 2.0 - Getting started
-==========================
+* Preemptive multitasking
+* Shared memory with copy-on-write
+* Simultaneous V86-mode DOS sessions with hooks for DPMI support
+* Configurable hot-keys to change among process' terminals
+* Boot from DOS prompt and exit back into DOS prompt
+* Built in device drivers for DOS file system and Terminal
+* Integrated debugger:
+  - Full debugging support
+  - Internal variables
+  - Breakpoints
+  - Full expression evaluator
+  - Command line interface with history
+  - Support for Watcom map files to map addresses to names
+  - Single step or trace execution
+* Accompanied POSIX compliant C-library
+
+* List of UNIX programs executing: Banner, Cal
+
+Getting started
+===============
 
 1.  Run GO.BAT to start kernel.  It will load `init' process and break in the
     built-in debugger (*1).
@@ -23,27 +45,6 @@ YAOS 2.0 - Getting started
      a prompt 'HOME>'.  Try these commands:
        `banner HELLO'
        `cal 1997'
-
-YAOS 2.0 - Specifications
-=========================
-
-* Preemptive multitasking
-* Shared memory with copy-on-write
-* Simultaneous V86-mode DOS sessions with hooks for DPMI support
-* Configurable hot-keys to change among process' terminals
-* Boot from DOS prompt and exit back into DOS prompt
-* Built in device drivers for DOS file system and Terminal
-* Integrated debugger:
-	- Full debugging support
-	- Internal variables
-	- Breakpoints
-	- Full expression evaluator
-	- Command line interface with history
-	- Support for Watcom map files to map addresses to names
-	- Single step or trace execution
-* Accompanied POSIX compliant C-library
-
-* List of UNIX programs executing: Banner, Cal
 
 SOURCE CODE
 ===========
