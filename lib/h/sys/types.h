@@ -1,64 +1,66 @@
 /******************************************************************************
-*
-*   Module:     sys/types.h
-*
-*   Revision:   1.00
-*
-*   Date:       09/02/96
-*
-*   Author:     Goran Devic
-*
+*                                                                             *
+*   Module:     Types.h                                                       *
+*                                                                             *
+*   Revision:   1.00                                                          *
+*                                                                             *
+*   Date:       09/2/96                                                       *
+*                                                                             *
+*   Author:     Goran Devic                                                   *
+*                                                                             *
 *******************************************************************************
 
     Module Description:
 
-          Basic data types
+        This is a header file containing basic POSIX data types
 
 *******************************************************************************
-*
-*   Changes:
-*
-*   DATE     REV   DESCRIPTION OF CHANGES                          AUTHOR
-* --------   ----  ---------------------------------------------   -----------
-* 09/02/96   1.00  Original                                        Goran Devic
-* --------   ----  ---------------------------------------------   -----------
+*                                                                             *
+*   Changes:                                                                  *
+*                                                                             *
+*   DATE     DESCRIPTION OF CHANGES                               AUTHOR      *
+* --------   ---------------------------------------------------  ----------- *
+* 11/7/97    Original                                             Goran Devic *
+* --------   ---------------------------------------------------  ----------- *
 *******************************************************************************
-*   Important defines/undefines
+*   Important Defines                                                         *
 ******************************************************************************/
 #ifndef _TYPES_H_
 #define _TYPES_H_
 
+
 /******************************************************************************
-*   Include Files
+*                                                                             *
+*   Include Files                                                             *
+*                                                                             *
 ******************************************************************************/
 
+
 /******************************************************************************
-*   Local Defines, Variables and Macros
+*                                                                             *
+*   Global Defines, Variables and Macros                                      *
+*                                                                             *
 ******************************************************************************/
-typedef unsigned short dev_t;
-typedef unsigned short gid_t;
-typedef unsigned short ino_t;
-typedef unsigned short mode_t;
-typedef unsigned short nlink_t;
-typedef long off_t;
-typedef int pid_t;
 
-#ifndef _SIZE_T_DEF_
-#define _SIZE_T_DEF_
- typedef unsigned size_t;
-#endif
+typedef unsigned short dev_t;           // Major/minor device number
+typedef unsigned short ino_t;           // File serial number
+typedef unsigned short mode_t;          // File mode/protection bits etc.
+typedef unsigned short nlink_t;         // Number of links
+typedef unsigned short uid_t;           // User ID of the file owner
+typedef unsigned short gid_t;           // Group ID of the file owner
+typedef unsigned long  off_t;           // File size
 
-#ifndef _SSIZE_T_DEF_
-#define _SSIZE_T_DEF_
- typedef unsigned ssize_t;
-#endif
-
-typedef unsigned short uid_t;
+typedef int            pid_t;           // Process ID type
+typedef unsigned int   size_t;          // Size type
+typedef unsigned int   ssize_t;         // Another size type
 
 
 /******************************************************************************
-*   Global Functions
+*                                                                             *
+*   External Functions                                                        *
+*                                                                             *
 ******************************************************************************/
 
 
 #endif // _TYPES_H_
+

@@ -9,12 +9,12 @@
 *   Author:     Goran Devic                                          *
 *                                                                    *
 **********************************************************************
-*                                                                    *
-*   Module Description:                                              *
+.-
+    Module Description:
 
-        Private definitions for the debugger.  No other file should
-        include these except the debugger.c
-       
+        Private definitions for the disassembler.  No other file 
+        should include these.
+-.
 **********************************************************************
 *                                                                    *
 *   Changes:                                                         *
@@ -112,11 +112,11 @@
 #define _lea           0x44
 #define _leave         0x45
 #define _lgdt          0x46
-#define _lidt          0x47   
+#define _lidt          0x47
 #define _lgs           0x48
 #define _lss           0x49
 #define _lds           0x4a
-#define _les           0x4b 
+#define _les           0x4b
 #define _lfs           0x4c
 #define _lldt          0x4d
 #define _lmsw          0x4e
@@ -153,21 +153,21 @@
 #define _popa          0x6d
 #define _popad         0x6e
 #define _popf          0x6f
-#define _popfd         0x70    
-#define _push          0x71    
-#define _pusha         0x72    
-#define _pushad        0x73    
-#define _pushf         0x74    
-#define _pushfd        0x75    
-#define _rcl           0x76    
-#define _rcr           0x77    
-#define _rol           0x78    
-#define _ror           0x79    
-#define _rep           0x7a    
-#define _repe          0x7b    
-#define _repz          0x7c    
-#define _repne         0x7d    
-#define _repnz         0x7e    
+#define _popfd         0x70
+#define _push          0x71
+#define _pusha         0x72
+#define _pushad        0x73
+#define _pushf         0x74
+#define _pushfd        0x75
+#define _rcl           0x76
+#define _rcr           0x77
+#define _rol           0x78
+#define _ror           0x79
+#define _rep           0x7a
+#define _repe          0x7b
+#define _repz          0x7c
+#define _repne         0x7d
+#define _repnz         0x7e
 #define _ret           0x7f
 #define _sahf          0x80
 #define _sal           0x81
@@ -187,7 +187,7 @@
 #define _sldt          0x8f
 #define _smsw          0x90
 #define _stc           0x91
-#define _std           0x92 
+#define _std           0x92
 #define _sti           0x93
 #define _stos          0x94
 #define _stosb         0x95
@@ -423,7 +423,7 @@ static char* sNames[] = {
 **********************************************************************/
 #define _NDEF          0xC0      // Udefined/reserved opcode
 #define _2BESC         0xC1      // 2 byte escape code
-#define _ESC           0xC2      // ESC - Escape to coprocessor instruction set 
+#define _ESC           0xC2      // ESC - Escape to coprocessor instruction set
 #define _S_ES          0xC3      // Segment ES override
 #define _S_CS          0xC4      // Segment CS override
 #define _S_SS          0xC5      // Segment SS override
@@ -432,19 +432,19 @@ static char* sNames[] = {
 #define _S_GS          0xC8      // Segment GS override
 #define _OPSIZ         0xC9      // Operand size override
 #define _ADSIZ         0xCA      // Address size override
-#define _GRP1          0xCB      // Group 1 extended opcode 
-#define _GRP2          0xCC      // Group 2 extended opcode 
-#define _GRP3          0xCD      // Group 3 extended opcode 
-#define _GRP4          0xCE      // Group 4 extended opcode 
-#define _GRP5          0xCF      // Group 5 extended opcode 
-#define _GRP6          0xD0      // Group 6 extended opcode 
-#define _GRP7          0xD1      // Group 7 extended opcode 
-#define _GRP8          0xD2      // Group 8 extended opcode 
+#define _GRP1          0xCB      // Group 1 extended opcode
+#define _GRP2          0xCC      // Group 2 extended opcode
+#define _GRP3          0xCD      // Group 3 extended opcode
+#define _GRP4          0xCE      // Group 4 extended opcode
+#define _GRP5          0xCF      // Group 5 extended opcode
+#define _GRP6          0xD0      // Group 6 extended opcode
+#define _GRP7          0xD1      // Group 7 extended opcode
+#define _GRP8          0xD2      // Group 8 extended opcode
 #define _GRP9          0xD3      // Group 9 extended opcode (group 3 w/word)
 
 /*********************************************************************
 *
-*   Define to use in the place of the third argument to an opcode 
+*   Define to use in the place of the third argument to an opcode
 *   to define an instruction that changes its name depending on the
 *   data width: for 16 bit data use the original name, for 32 bit data
 *   use the name that immediately follows it
@@ -640,11 +640,11 @@ static DWORD Op2[ 16 ][ 16 ] = {
 *
 **********************************************************************/
 static DWORD Groups[ 9 ][ 8 ] = {
-{ PK(_add  ,0   ,0    ), PK(_or   ,0   ,0    ), PK(_adc  ,0   ,0    ), PK(_sbb  ,0   ,0    ), PK(_and  ,0   ,0    ), PK(_sub  ,0   ,0    ), PK(_xor  ,0   ,0    ), PK(_cmp  ,0   ,0    ) 
+{ PK(_add  ,0   ,0    ), PK(_or   ,0   ,0    ), PK(_adc  ,0   ,0    ), PK(_sbb  ,0   ,0    ), PK(_and  ,0   ,0    ), PK(_sub  ,0   ,0    ), PK(_xor  ,0   ,0    ), PK(_cmp  ,0   ,0    )
 },
 { PK(_rol  ,0   ,0    ), PK(_ror  ,0   ,0    ), PK(_rcl  ,0   ,0    ), PK(_rcr  ,0   ,0    ), PK(_sal  ,0   ,0    ), PK(_shr  ,0   ,0    ), PK(_shl  ,0   ,0    ), PK(_sar  ,0   ,0    )
 },
-{ PK(_test ,_Eb ,_Ib  ), PK(_test ,_Eb ,_Ib  ), PK(_not  ,0   ,0    ), PK(_neg  ,0   ,0    ), PK(_mul  ,_Eb ,_AL  ), PK(_imul ,_Eb ,_AL  ), PK(_div  ,_Eb ,_AL  ), PK(_idiv ,_Eb ,_AL  ) 
+{ PK(_test ,_Eb ,_Ib  ), PK(_test ,_Eb ,_Ib  ), PK(_not  ,0   ,0    ), PK(_neg  ,0   ,0    ), PK(_mul  ,_Eb ,_AL  ), PK(_imul ,_Eb ,_AL  ), PK(_div  ,_Eb ,_AL  ), PK(_idiv ,_Eb ,_AL  )
 },
 { PK(_inc  ,_Eb ,0    ), PK(_dec  ,_Eb ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    )
 },
@@ -656,7 +656,7 @@ static DWORD Groups[ 9 ][ 8 ] = {
 },
 { PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_NDEF ,0   ,0    ), PK(_bt   ,0   ,0    ), PK(_bts  ,0   ,0    ), PK(_btr  ,0   ,0    ), PK(_btc  ,0   ,0    )
 },
-{ PK(_test ,_Ev ,_Iv  ), PK(_test ,_Ev ,_Iv  ), PK(_not  ,0   ,0    ), PK(_neg  ,0   ,0    ), PK(_mul  ,_Ev ,_eAX ), PK(_imul ,_Ev ,_eAX ), PK(_div  ,_Ev ,_eAX ), PK(_idiv ,_Ev ,_eAX ) 
+{ PK(_test ,_Ev ,_Iv  ), PK(_test ,_Ev ,_Iv  ), PK(_not  ,0   ,0    ), PK(_neg  ,0   ,0    ), PK(_mul  ,_Ev ,_eAX ), PK(_imul ,_Ev ,_eAX ), PK(_div  ,_Ev ,_eAX ), PK(_idiv ,_Ev ,_eAX )
 },
 };
 
@@ -695,7 +695,7 @@ static char *sScale[ 4 ] = {
 };
 
 static char *sAdr1[ 2 ][ 8 ] = {
-{ "bx+si","bx+di","bp+si","bp+di","si","di","?","bx" },
+{ "bx+si","bx+di","bp+si","bp+di","si","di","bp","bx" },
 { "eax","ecx","edx","ebx","?","ebp","esi","edi" }
 };
 

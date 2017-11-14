@@ -1,38 +1,36 @@
 /******************************************************************************
 *                                                                             *
-*   Module:     types.h                                                       *
+*   Module:     Types.h                                                       *
 *                                                                             *
 *   Revision:   1.00                                                          *
 *                                                                             *
-*   Date:       06/25/96                                                      *
+*   Date:       8/5/97                                                        *
 *                                                                             *
 *   Author:     Goran Devic                                                   *
 *                                                                             *
 *******************************************************************************
-
+.-
     Module Description:
 
-        This is a header file defining the basic data types.
+        This is a header file for the basic data types.  Here are defined
+        types such as DWORD, WORD and BYTE.  Also, TRUE and FALSE are here.
 
+        Watcom-specific pragma to pack the structure is defined.
+-.
 *******************************************************************************
 *                                                                             *
 *   Changes:                                                                  *
 *                                                                             *
 *   DATE     REV   DESCRIPTION OF CHANGES                         AUTHOR      *
 * --------   ----  ---------------------------------------------  ----------- *
-* 06/25/96   1.00  Original                                       Goran Devic *
+* 8/5/97     1.00  Original                                       Goran Devic *
 * --------   ----  ---------------------------------------------  ----------- *
 *******************************************************************************
 *   Important Defines                                                         *
 ******************************************************************************/
-#ifndef _TYPES_H_
-#define _TYPES_H_
+#ifndef _KTYPES_H_
+#define _KTYPES_H_
 
-/******************************************************************************
-*                                                                             *
-*   Include Files                                                             *
-*                                                                             *
-******************************************************************************/
 
 /******************************************************************************
 *                                                                             *
@@ -40,19 +38,29 @@
 *                                                                             *
 ******************************************************************************/
 
-typedef int BOOL;
-typedef unsigned char BYTE;
-typedef unsigned short WORD;
-typedef unsigned long DWORD;
+// This affects the Watcom compiler to pack structures
 
-#define FALSE   0
-#define TRUE    1
+#pragma pack(1)
 
 
-/******************************************************************************
-*                                                                             *
-*   External Functions                                                        *
-*                                                                             *
-******************************************************************************/
+typedef int BOOL;                       // Define boolean type as integer
 
-#endif // _TYPES_H_
+#define TRUE        1                   // Define true as 1
+#define FALSE       0                   // Define false as 0
+
+
+typedef unsigned char BYTE;             // Define a byte
+typedef unsigned short WORD;            // Define a word (2 bytes)
+typedef unsigned long DWORD;            // Define a double word (4 bytes)
+
+#ifndef NULL
+#define NULL        0L                  // Define NULL integer
+#endif
+
+
+#pragma aux Int3 =  \
+" int 3"            \
+parm;
+
+
+#endif // _KTYPES_H_

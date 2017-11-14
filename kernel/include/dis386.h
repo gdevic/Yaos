@@ -9,11 +9,13 @@
 *   Author:     Goran Devic                                          *
 *                                                                    *
 **********************************************************************
-*                                                                    *
-*   Module Description:                                              *
+.-
+    Module Description:
 
-    Defines and arrays for Intel 386 disassembler        
-       
+       This is a header file defining the interface to the
+       disassembler module.  The main structure that interfaces
+       is defined here.
+-.
 **********************************************************************
 *                                                                    *
 *   Changes:                                                         *
@@ -47,7 +49,7 @@
 **********************************************************************/
 
 /*********************************************************************
-*
+*.-
 *   This structure is used to pass parameters and options to the
 *   line disassembler.
 *
@@ -57,11 +59,12 @@ typedef struct
     BYTE *bpTarget;              /* Target pointer to disassemble    */
     BYTE bDataSize;              /* Data size 16/32 bits (0/1)       */
     BYTE bAddressSize;           /* Address size 16/32 bits (0/1)    */
-    
+
     BYTE *szDisasm;              /* String to put ascii result       */
     BYTE bAsciiLen;              /* Length of the ascii result       */
     BYTE bInstrLen;              /* Instruction lenght in bytes      */
     BYTE fIllegalOp;             /* Illegal opcode flag              */
+    BYTE sbInstr[16];            /* All the bytes of a current instr */
 
 } TDis386;
 
@@ -76,6 +79,6 @@ typedef struct
 
 extern BYTE Dis386( TDis386 *pDis );
 
-
+/*-.*/
 
 #endif  // _DIS386_H_

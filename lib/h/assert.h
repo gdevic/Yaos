@@ -36,9 +36,10 @@
 *   Local Defines, Variables and Macros
 ******************************************************************************/
 
-#define assert( expr )   ((expr)? (void)0: __assert(#expr, __FILE__, __LINE__))
+extern void __assert( char *file, int line );
 
-extern void __assert( char *expr, int file, int line );
+
+#define assert( expr )   ((expr)? (void)0: __assert(__FILE__, __LINE__))
 
 
 /******************************************************************************

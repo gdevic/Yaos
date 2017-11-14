@@ -1,0 +1,5 @@
+Nov 28, 1997:
+	Enlarged TSS IO permission map to encompass FFFF I/O ports. That was
+	needed for SCSI (?).
+Nov 30, 1997:
+	Some cosmetics when booting up

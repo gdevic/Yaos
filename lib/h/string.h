@@ -32,15 +32,9 @@
 *   Global Variables, Macros and Defines
 ******************************************************************************/
 
-#ifndef _SIZE_T_DEF_
-#define _SIZE_T_DEF_
- typedef unsigned size_t;
-#endif
+typedef unsigned size_t;
 
-#ifndef _NULL_DEF_
-#define _NULL_DEF_
- #define NULL               (long)0
-#endif
+#define NULL               0L
 
 
 /******************************************************************************
