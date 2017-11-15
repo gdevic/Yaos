@@ -1,0 +1,250 @@
+WATCOM Linker Version 10.6
+Copyright by WATCOM International Corp. 1985, 1996. All rights reserved.
+Created on:       98/04/28 15:36:47
+Executable Image: ls.exp
+creating a Phar Lap simple executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          0000566c             00001e74
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_TEXT                  CODE                          00000000        0000566a
+CONST                  DATA           DGROUP         0000566c        0000054c
+CONST2                 DATA           DGROUP         00005bb8        00000000
+_DATA                  DATA           DGROUP         00005bc0        000002c8
+_BSS                   BSS            DGROUP         00005e90        00001650
+_LAST                  LAST           DGROUP         000074e0        00000000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: ls.obj(F:\Yaos\COMMANDS\ls.c)
+00005e90+      filecol
+000060e8+      namwidth
+00006340+      sizwidth
+00006598+      colwidth
+000067f0+      gids
+00006bf0+      uids
+00006ff0+      nfiles
+00006ff4+      nlines
+00005bc0+      _ifmt
+00005bd1+      ncols
+00005bd5+      ex
+00005bd9+      allowed
+00005bf0+      arg0flag
+00005bf7+      plen
+00005bfb+      pidx
+00005bff+      field
+00000000+      heaperr
+00000035+      allocate
+0000006b+      rllct
+000000a5+      setflags
+00000145+      present
+0000018d+      report
+000001d5+      idname
+00000339+      addpath
+0000044b+      setstat
+000005fa+      permissions
+00000850+      numeral
+000008bc+      cxsize
+00000b3a+      namecmp
+00000b67+      mtimecmp
+00000bbe+      atimecmp
+00000c15+      ctimecmp
+00000c6c+      typecmp
+00000cbe+      revcmp
+00000df3+      newfile
+00000e47+      pushfile
+00000e6a+      delfile
+00000e95+      popfile
+00000ec3+      dotflag
+00000f29+      adddir
+0000100b+      countblocks
+00001072+      printname
+00001105+      mark
+000011e3+      maxise
+00001213+      print1
+000015cd+      countfiles
+00001606+      columnise
+0000168e+      print
+00001827+      listfiles
+00001bc3       main
+00007000+      path
+00007004+      istty
+00007008+      uid
+0000700c+      arg0
+00007010+      gid
+00007014+      flags
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Stdio.c)
+00002020*      fopen
+00002221*      fclose
+00002310+      setvbuf
+0000240b*      setbuf
+0000244c*      ungetc
+000024cc*      fgetc
+0000251b*      fgets
+000025ca*      gets
+00002678*      fputc
+000026d3       fputs
+00002763*      puts
+00002845*      fread
+000028f0*      fwrite
+000029a3*      freopen
+00002ba2+      fseek
+00002c74*      fsetpos
+00002ca0*      ftell
+00005c58+      _stdin
+00005c70       _stdout
+00005c88       _stderr
+00005ca0       _io
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Printf.c)
+00002d70+      vsprintf
+00003339       printf
+0000338f*      vfprintf
+000033d6       fprintf
+0000342a       sprintf
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Stdlib.c)
+0000346a       getenv
+00003527       exit
+00003546       malloc
+00003571*      calloc
+000035c2       realloc
+000035f9       free
+000074bc       _dwDynamic
+000074c0       environ
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_String.c)
+0000361c*      memchr
+0000366e*      memcmp
+000036cf*      memcpy
+0000371a*      memmove
+000037b9       memset
+000037ff*      strcat
+00003851       strchr
+00003895       strcmp
+000038ee*      strcoll
+00003917       strcpy
+00003959*      strcspn
+000039c7       strerror
+00003a02       strlen
+00003a37*      strncat
+00003a9f*      strncmp
+00003b11+      strncpy
+00003b73+      strpbrk
+00003bd5       strrchr
+00003c1d+      strspn
+00003c8a*      strstr
+00003cf7*      strtok
+00003d87*      strxfrm
+00003dc0*      memccpy
+00003e20*      memicmp
+00003f32*      strcmpi
+00004035*      strdup
+00004086*      stricmp
+00004189*      strlwr
+000041f1       strnicmp
+00004310*      strnset
+00004358*      strrev
+000043bd*      strset
+000043f4*      strupr
+Module: \yaos\lib\cstart.lib(D:\YAOS\LIB\Source\_Setup.c)
+0000445c       _Init_Environ
+000044ef*      __assert
+00005d78       errno
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Pwd.c)
+00004526       getpwuid
+00004543*      getpwname
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Grp.c)
+00004560       getgrgid
+0000457d*      getgrnam
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Time.c)
+0000459a       localtime
+000045b7       time
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Unistd.c)
+000045d4       access
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Dir.c)
+000045f1       opendir
+0000467e       readdir
+000046e9       closedir
+00004755*      rewinddir
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Flsbuf.c)
+000047fe       _flsbuf
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Fflush.c)
+00004b28       fflush
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Stats.c)
+00004cfd       stat
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Id.c)
+00004d1a       getegid
+00004d37       geteuid
+00004d54*      getuid
+00004d71*      getgid
+00004d8e*      getpgrp
+00004dab*      getpid
+00004dc8*      getppid
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Termios.c)
+00004de5       isatty
+00004e25*      tcsetattr
+00004ec1+      tcgetattr
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Fd.c)
+00004f0c       open
+00004f7d       creat
+00004fc8       close
+0000500d       read
+00005059       write
+000050a5       lseek
+Module: \yaos\lib\cstart.lib(Source\_Startup.asm)
+00005100       _cstart_
+00005d80       _argc
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Filbuf.c)
+0000512e       _filbuf
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Ctype.c)
+00005d84       _ctype_
+Module: \yaos\lib\clib.lib(Source\_SysCall.asm)
+00005313*      _SETJMP
+00005300       sys_call
+Module: \yaos\lib\clib.lib(F:\YAOS\LIB\Source\_Malloc.c)
+00005336       _INIT_ALLOC
+000053a0*      _Alloc_Check
+00005479       _kMalloc
+0000556a       _kFree
+Warning(1014): stack segment not found
+
+
+                        +--------------------+
+                        |   Libraries Used   |
+                        +--------------------+
+
+\yaos\lib\cstart.lib
+\yaos\lib\clib.lib
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0200 (512.)
+Memory size:  74e0 (29920.)
+Entry point address: 00005100
+Link time: 00:00.15

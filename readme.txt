@@ -25,7 +25,10 @@ Specifications
 
 Getting started
 ===============
-A bootable floppy image "yaos.img" is included. You can use a VMWare VM to run it.
+A bootable floppy image "yaos.img" is included. You can use a VMWare VM to run it
+or mount it within DosBOX: imgmount y YAOS.IMG -t floppy
+or boot using that image:  boot YAOS.IMG
+VMWare is a better method since DosBOX will cause Yaos to fault into debugger.
 
 1.  Run START.BAT to start kernel.  It will load `init' process and break in the
     built-in debugger (*1).

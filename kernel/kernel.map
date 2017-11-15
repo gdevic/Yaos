@@ -1,0 +1,452 @@
+WATCOM Linker Version 10.6
+Copyright by WATCOM International Corp. 1985, 1996. All rights reserved.
+Created on:       98/01/26 16:58:42
+Executable Image: kernel.exp
+creating a Phar Lap simple executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          000121c8             0000b624
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_TEXT                  CODE                          00000000        000121c6
+CONST                  DATA           DGROUP         000121c8        0000237c
+CONST2                 DATA           DGROUP         00014544        00000000
+_DATA                  DATA           DGROUP         00014550        00003434
+_BSS                   BSS            DGROUP         00017984        00005e68
+_STACK                 STACK                         0001d7f0        00010000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: Object\Init.obj(F:\YAOS\KERNEL\Source\Init.c)
+00000018       KernelDie
+00000040       _assertk
+00000084+      kmain
+00014550       sys_pid
+00014554       next_gid
+00017984+      sCmd
+Module: Object\Inita.obj(Source\Init.asm)
+00014570       GDT_DESCRIPTOR
+0001456c       LOADER_V86
+00000435       UNLOAD
+00014578       GDT
+00000320*      DEBUGOUT
+0002d7f0       TOS
+00014572       GDT_ADDRESS
+00014568*      LOADER_RET
+Module: Object\Device.obj(F:\YAOS\KERNEL\Source\Device.c)
+00000441       Init_Dev
+000004d0       Dev_null
+00014d78       Dev
+Module: Object\DosX.obj(F:\YAOS\KERNEL\Source\DosX.c)
+000004ed       Init_DosX
+000005d7+      UnixToDos
+00000737       DOS_GetCurDrive
+00000777*      DOS_mkdir
+0000084c*      DOS_rmdir
+00000921*      DOS_chdir
+000009f6       DOS_create
+00000adb       DOS_open
+00000bcd       DOS_close
+00000c30       DOS_read
+00000d4a       DOS_write
+00000e45*      DOS_unlink
+00000f1a       DOS_lseek
+00000fa9       DOS_getattrib
+00001098*      DOS_chmod
+00001184       DOS_ioctl
+000011e3*      DOS_dup
+00001247*      DOS_dup2
+000012b2*      DOS_getcwd
+0000135f+      DOS_Alloc
+000013d3*      DOS_free
+00001438       DOS_findfirst
+0000157f       DOS_findnext
+00001661*      DOS_setPSP
+0000169f+      DOS_getPSP
+000016e2*      DOS_childPSP
+00001715*      DOS_rename
+0000185a*      DOS_flush
+Module: Object\Dpmi.obj(F:\YAOS\KERNEL\Source\Dpmi.c)
+000018bd       Int2F_Handler
+00001998       Int21_Handler
+000019da       DPMI_Switch
+00001b2a+      DPMI_Exit
+00001b49       Int31_Handler
+00017a30       dwDPMISegOffs
+Module: Object\Exec.obj(F:\YAOS\KERNEL\Source\Exec.c)
+00001b66       Sys_Fork
+00001dc3       Sys_Exec
+00002148       do_execve
+Module: Object\File.obj(F:\YAOS\KERNEL\Source\File.c)
+000025a8       Init_FS
+00017a34       Files
+Module: Object\Gdt.obj(F:\YAOS\KERNEL\Source\Gdt.c)
+000025e2       SetupSelector
+000026f7       AllocLDT
+000027cf       FreeLDT
+Module: Object\Int.obj(F:\YAOS\KERNEL\Source\Int.c)
+00002892       Init_Interrupts
+000028e2       Register_Exception_Handler
+00002902       Register_Interrupt_Handler
+00018af4       bSaved8259
+Module: Object\Inta.obj(Source\Int.asm)
+00014ec0       IDT_DESCRIPTOR
+00014ec8       IDT
+000030fe*      INT_15_HANDLER
+000030c0*      INT_14_HANDLER
+00003082*      INT_13_HANDLER
+00003044*      INT_12_HANDLER
+00003006*      INT_11_HANDLER
+00002fc8*      INT_10_HANDLER
+000031f6*      INT_19_HANDLER
+000031b8*      INT_18_HANDLER
+0000317a*      INT_17_HANDLER
+0000313c*      INT_16_HANDLER
+0000332c*      INT_1E_HANDLER
+000032ee*      INT_1D_HANDLER
+000032b0*      INT_1C_HANDLER
+00003272*      INT_1B_HANDLER
+00003234*      INT_1A_HANDLER
+0000336a*      INT_1F_HANDLER
+00015310+      IRQ_Table
+000034de*      INT_75_HANDLER
+000034a0*      INT_74_HANDLER
+00003462*      INT_73_HANDLER
+00003424*      INT_72_HANDLER
+000033e6*      INT_71_HANDLER
+000033a8*      INT_70_HANDLER
+0000355a*      INT_77_HANDLER
+0000351c*      INT_76_HANDLER
+00014ec2       IDT_ADDRESS
+0000298c*      INT_0_HANDLER
+00002b7c*      INT_8_HANDLER
+00002b3e*      INT_7_HANDLER
+00002b00*      INT_6_HANDLER
+00002ac2*      INT_5_HANDLER
+00002a84*      INT_4_HANDLER
+00002a46*      INT_3_HANDLER
+00002a08*      INT_2_HANDLER
+000029ca*      INT_1_HANDLER
+00002c05*      INT_9_HANDLER
+00002f3d*      INT_F_HANDLER
+00002eb4*      INT_E_HANDLER
+00002e2b*      INT_D_HANDLER
+00002da2*      INT_C_HANDLER
+00002d19*      INT_B_HANDLER
+00002c90*      INT_A_HANDLER
+00015290       Exception_Table
+Module: Object\Keyboard.obj(F:\YAOS\KERNEL\Source\Keyboard.c)
+000037db       Deb_Keyboard_Handler
+000039a9       Int_Keyboard_Handler
+00003b81       GetKey
+Module: Object\PageMM.obj(F:\YAOS\KERNEL\Source\PageMM.c)
+0001535c       pPages
+00015360       PageDir
+00015364       PageTable
+00015368       PageTableMap
+0001536c       pHeap
+00003bfa       NPAGES
+00003c06       Init_MM
+00003cb6       HeapCommitMap
+00003d6a       GetPhysicalPage
+00003e11       ReleasePhysicalPage
+00018b18       NFREEPAGE
+Module: Object\PF.obj(F:\YAOS\KERNEL\Source\PF.c)
+00003eb9       Page_Fault_Handler
+00018b1c+      FaultyAddress
+Module: Object\Printf.obj(F:\YAOS\KERNEL\Source\Printf.c)
+00004197       _print
+000047c9       sprintf
+0000480a*      vsprintf
+00018b24       fnPutChar
+00018b28       nCharsWritten
+Module: Object\Queue.obj(F:\YAOS\KERNEL\Source\Queue.c)
+00004876       QCheck
+000049a4       QCreate
+000049e0*      QCreateAlloc
+00004a3e+      QDestroy
+00004acc*      QDestroyAlloc
+00004afd*      QPush
+00004b8f*      QPop
+00004c37+      QInsert
+00004d0e       QAdd
+00004de6       QDelete
+00004ea1       QFirst
+00004ede       QLast
+00004f1d       QCurrent
+00004f50+      QIsEmpty
+00004f6f       QNext
+00004fc6       QPrev
+0000501d       QFind
+000050bd*      QEnqueue
+00005152*      QDequeue
+000051e4       QPriorityEnqueue
+000052de*      QSort
+Module: Object\Sched.obj(F:\YAOS\KERNEL\Source\Sched.c)
+000053c1       Scheduler
+00005445       Reschedule
+Module: Object\TSS.obj(F:\YAOS\KERNEL\Source\TSS.c)
+00005512       Init_TSS
+000055d9+      Invalid_TSS_Handler
+00018b2c       TSS
+Module: Object\V86.obj(F:\YAOS\KERNEL\Source\V86.c)
+00005611       Init_V86
+000056e5+      GetVMBreakAddress
+00005754+      VMint10_Handler
+000057b9+      Inv_Opcode_Handler
+00005835+      GPF_Handler
+000058ae       REFLECT_V86_INT
+00015380       Reg
+000153a0       Seg
+0001ab98       IntXX_Handler
+0001af98       dwBreakSegOffs
+Module: Object\V86a.obj(Source\V86.asm)
+000153c0       VM_SS
+00005b83       V86_Int_Ret
+00005af1       V86_Int
+000153c4       VM_SP
+00005bd6       Int13_VM_Handler
+00005aa8       Reflect_Int
+Module: Object\VM.obj(F:\YAOS\KERNEL\Source\VM.c)
+00005c17       Init_Process
+00005ee7       CreateVM
+00006161       DestroyProcess
+00006301       SetCurrentVM
+00015bcc       VM_RefreshScreen
+00015bd0       ProcessHotKey
+00015fd0+      VM_Banner
+0001af9c       pCurProc
+0001afa0       pCurProcPM
+0001afa4       pProc
+Module: Object\SysCall.obj(F:\YAOS\KERNEL\Source\SysCall.c)
+000066c9       SYSCALLX
+00006719+      Sys_Null
+00006742+      Sys_Kill
+0000676b       CheckProcessBuf
+000067b6       CheckProcessString
+00006822       CheckProcessAddress
+00006867*      IsBlocked
+000068dd       DevUnblock
+00016070+      SysCall_Table
+0001b3a0       pSysRegs
+Module: Object\Path.obj(F:\YAOS\KERNEL\Source\Path.c)
+00006910+      PathResolve
+000160b8       fs_root_major
+000160b9       fs_root_minor
+000160ba+      Mount
+Module: Object\Exit.obj(F:\YAOS\KERNEL\Source\Exit.c)
+000069e2       Sys_Exit
+00006b5e       Sys_Wait
+Module: Object\Open.obj(F:\YAOS\KERNEL\Source\Open.c)
+00006e5a       Sys_Ioctl
+00006e83       Sys_Creat
+0000706c       Sys_Open
+000072a6       Sys_Close
+Module: Object\Read.obj(F:\YAOS\KERNEL\Source\Read.c)
+000073df       Sys_Read
+000075d6       IsBlocked_Read
+00007671+      Unblock_Read
+0001611c+      q_read
+Module: Object\Seek.obj(F:\YAOS\KERNEL\Source\Seek.c)
+000076ac       Sys_LSeek
+Module: Object\Stats.obj(F:\YAOS\KERNEL\Source\Stats.c)
+00007844       Sys_Stat
+000078cc       Sys_Fstat
+Module: Object\Write.obj(F:\YAOS\KERNEL\Source\Write.c)
+00007989       Sys_Write
+Module: Object\TTY.obj(F:\YAOS\KERNEL\Source\Dev\TTY.c)
+00007af2+      kIsEmpty
+00007b2c+      kIsFull
+00007b97+      kSearch
+00007c0c+      kEnqueue
+00007c4d+      kDequeue
+00007c9c*      kPeek
+00007cc5+      kDequeueHead
+00007d06       CreateTTY
+00007eba       DestroyTTY
+00007edd+      TTY_open
+00007f6d+      TTY_close
+00007fdb+      TTY_read
+0000812a+      term_in
+000083bc+      TTY_write
+0000855e+      new_line
+00008625+      term_out
+000161a8       pCurTTY
+000161ac       DevTTY
+000161d4       TTY
+Module: Object\DosFS.obj(F:\YAOS\KERNEL\Source\Dev\DosFS.c)
+0000876f+      DosFS_init
+00008870+      DosFS_open
+000088de+      DosFS_close
+00008958+      DosFS_read
+00008a5e+      DosFS_write
+00008aaa+      DosFS_lseek
+00008af6+      DosFS_ioctl
+00008b5a+      DosFS_creat
+00008c2b+      DosFS_stat
+00016214       DevDosFS
+0001b3a4+      DOS_Letter
+Module: Object\Break.obj(F:\YAOS\KERNEL\Source\Debugger\Break.c)
+00008e62       ControlBP
+00008fe9       BreakClear
+000090e2       BreakDisable
+0000915b       BreakEnable
+000091d4       BreakList
+00009226       BreakSet
+0000936a       BreakSetup
+000093a8       BreakCleanup
+0001b3c0       qBP
+Module: Object\Command.obj(F:\YAOS\KERNEL\Source\Debugger\Command.c)
+00009542+      GetCommand
+Module: Object\Debug.obj(F:\YAOS\KERNEL\Source\Debugger\Debug.c)
+0001b438       CPU_ErrorCode
+0001b43c+      context
+0001b444       pMemDeb
+0001b448       pDebFrame
+0001b44c       pDebCode
+0001b450       pDebReg
+0001b454       pDebSeg
+0001b458       Deb
+0001d3b4       pDebStack
+0000b22d       Debug_Int1
+0000b243       Debug_Int3
+0000b2c9*      Debug_TSS_Handler
+0000b2ea+      Debug
+0000bd49       Init_Debug
+Module: Object\Dis386.obj(F:\YAOS\KERNEL\Source\Debugger\Dis386.c)
+0000bfb7       Dis386
+Module: Object\Display.obj(F:\YAOS\KERNEL\Source\Debugger\Display.c)
+0000dd31       dprintf
+Module: Object\Dump.obj(F:\YAOS\KERNEL\Source\Debugger\Dump.c)
+0000dd82*      GetPhysicalAddress
+0000de1e       GetByte
+0000de94       Dump
+Module: Object\Eval.obj(F:\YAOS\KERNEL\Source\Debugger\Eval.c)
+000176a8+      nEvalDefaultBase
+000176ac       pfnEvalLiteralHandler
+0000e9ad       nEvaluate
+Module: Object\Info.obj(F:\YAOS\KERNEL\Source\Debugger\Info.c)
+0000ebe5       DisplayProcessInfo
+0000eebc       DisplayMemoryInfo
+0000eff6+      PrintDesc
+0000f218       PrintGDT
+0000f2b7       PrintIDT
+Module: Object\Map.obj(F:\YAOS\KERNEL\Source\Debugger\Map.c)
+0000f4b9       LoadMap
+0000f66b       SymPrint
+0000f7ce       GetSymbolAddress
+0000f836       GetSymbolName
+0000f8a5       GetClosestSymbolName
+0000f930       ClearSymbols
+0001d7c0       qSym
+Module: Object\Register.obj(F:\YAOS\KERNEL\Source\Debugger\Register.c)
+0000f9ff       PrintStackFrame
+0000fc0d       RegDisplay
+0000fe50       RegSet
+0001092e       CopyContext
+Module: Object\Set.obj(F:\YAOS\KERNEL\Source\Debugger\Set.c)
+000109a8+      fnSetCmp
+000109e9       SetValue
+00010cb2       SetPrintAll
+00010d08       SetGetValue
+00010d5d       SetGetInteger
+0001d7d0       qSet
+Module: Object\Trap.obj(Source\Debugger\Trap.asm)
+00010dc0       Debug_Trace_Handler
+00010e33       DebugRun
+00010dc7       Debug_Breakpoint_Handler
+Module: ..\Lib\CLib.Lib(F:\YAOS\LIB\Source\_String.c)
+00010e66*      memchr
+00010eb8*      memcmp
+00010f19       memcpy
+00010f64       memmove
+00011003       memset
+00011049       strcat
+0001109b       strchr
+000110df       strcmp
+00011138*      strcoll
+00011161       strcpy
+000111a3       strcspn
+00011211*      strerror
+0001124c       strlen
+00011281*      strncat
+000112e9       strncmp
+0001135b       strncpy
+000113bd+      strpbrk
+0001141f*      strrchr
+00011467       strspn
+000114d4*      strstr
+00011541*      strtok
+000115d1*      strxfrm
+0001160a*      memccpy
+0001166a*      memicmp
+0001177c       strcmpi
+0001187f*      strdup
+000118d0       stricmp
+000119d3*      strlwr
+00011a3b       strnicmp
+00011b5a*      strnset
+00011ba2*      strrev
+00011c07*      strset
+00011c3e*      strupr
+Module: ..\Lib\CLib.Lib(F:\YAOS\LIB\Source\_Malloc.c)
+00011ca6       _Init_Alloc
+00011d10*      _Alloc_Check
+00011de9       _kMalloc
+00011eda       _kFree
+Module: ..\Lib\CLib.Lib(F:\YAOS\LIB\Source\_Ctype.c)
+00017880       _ctype_
+Module: ..\Lib\CLib.Lib(F:\YAOS\LIB\Source\_Stdlib.c)
+00011fda*      getenv
+00012097*      exit
+000120b6       malloc
+000120e1*      calloc
+00012132*      realloc
+00012169+      free
+0001d7e4+      _dwDynamic
+0001d7e8+      environ
+Module: ..\Lib\CLib.Lib(Source\_SysCall.asm)
+000121a3*      _SETJMP
+00012190       sys_call
+Warning(1014): stack segment not found
+
+
+                        +--------------------+
+                        |   Libraries Used   |
+                        +--------------------+
+
+..\Lib\CLib.Lib
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0200 (512.)
+Memory size:  0002d7f0 (186352.)
+Entry point address: 000003b4
+Link time: 00:00.27
